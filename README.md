@@ -44,6 +44,6 @@ Este projeto foi construído para servir como a vitrine digital do estúdio, per
 ```bash
 /casa-nanquim
 ├── index.html          # Landing page principal
-├── /style.css
-├── /script.js
+├── style.css
+├── script.js
 └── /img                # Assets, logo e imagens do portfólio
