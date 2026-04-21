@@ -499,12 +499,12 @@ section { padding: 100px 0; position: relative; }
   filter: invert(90%) hue-rotate(180deg) contrast(90%);
 }
 
-/* WHATSAPP FLOAT - CORRIGIDO */
-.whatsapp-float {
+/* Instagram Float - mesmo estilo do WhatsApp, mas com cores do Instagram */
+.instagram-float {
   position: fixed;
   bottom: 25px;
   right: 25px;
-  background: #25D366;
+  background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   color: #fff;
   width: 52px;
   height: 52px;
@@ -513,14 +513,15 @@ section { padding: 100px 0; position: relative; }
   align-items: center;
   justify-content: center;
   font-size: 26px;
-  transition: transform 0.2s, background 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
   z-index: 9999;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
-.whatsapp-float:hover {
+
+.instagram-float:hover {
   transform: scale(1.1);
-  background: #128C7E;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
   color: #fff;
 }
 
