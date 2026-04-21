@@ -6,30 +6,33 @@
   <meta name="description" content="Casa Nanquim - Estúdio de Tatuagem. Reserve seu espaço.">
   <title>Casa Nanquim | Estúdio de Tatuagem</title>
   
+  <!-- Fonts & Libraries -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
   
-  <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23000' stroke='%23fff' stroke-width='2'/%3E%3Cpath fill='%23fff' d='M50 30 L58 45 L50 60 L42 45 Z'/%3E%3C/svg%3E">
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Favicon inline -->
+  <link rel="icon" type="image/png" href="./img/faviconnanquim.png">
 </head>
 <body>
 
-<!-- Transição de entrada (loader) -->
+<!-- Transição de entrada -->
 <div class="page-transition" id="pageTransition">
   <div class="transition-content">
     <div class="logo-icon">
-      <!-- Substitua pelo caminho da sua logo local, se desejar -->
-      <i class="fas fa-feather-alt"></i>
+      <img src="img/logo.png" alt="Casa Nanquim" style="width: 80px; height: auto;">
     </div>
     <h3>CASA NANQUIM</h3>
     <div class="ink-drop"></div>
-    <p>Onde a tinta encontra a pele</p>
+    <p style="color: #f5f3ef; letter-spacing: 2px; font-size: 0.8rem;">Onde a tinta encontra a pele</p>
   </div>
 </div>
 
-<!-- Efeitos de tinta (apenas desktop) -->
+<!-- Camada de efeitos de tinta -->
 <div class="ink-canvas">
   <div class="ink-blob"></div><div class="ink-blob"></div><div class="ink-blob"></div><div class="ink-blob"></div>
   <div class="ink-splash"></div><div class="ink-splash"></div><div class="ink-splash"></div><div class="ink-splash"></div><div class="ink-splash"></div>
@@ -120,39 +123,14 @@
       </div>
     </div>
     <div class="gallery-grid" data-aos="fade-up-ink" data-aos-delay="100">
-      <!-- Exemplo com 8 imagens (substitua pelos seus links) -->
-      <div class="gallery-item" data-img="https://images.unsplash.com/photo-1590246814883-57c511e3b7f3?w=1200&h=1200&fit=crop">
-        <img src="https://images.unsplash.com/photo-1590246814883-57c511e3b7f3?w=400&h=400&fit=crop" loading="lazy" alt="Tattoo 1">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item" data-img="https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&h=1200&fit=crop">
-        <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&h=400&fit=crop" loading="lazy" alt="Tattoo 2">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item" data-img="https://images.unsplash.com/photo-1583356322882-85559b472f56?w=1200&h=1200&fit=crop">
-        <img src="https://images.unsplash.com/photo-1583356322882-85559b472f56?w=400&h=400&fit=crop" loading="lazy" alt="Tattoo 3">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item" data-img="https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?w=1200&h=1200&fit=crop">
-        <img src="https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?w=400&h=400&fit=crop" loading="lazy" alt="Tattoo 4">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item" data-img="https://images.unsplash.com/photo-1545987795-200671eeadc1?w=1200&h=1200&fit=crop">
-        <img src="https://images.unsplash.com/photo-1545987795-200671eeadc1?w=400&h=400&fit=crop" loading="lazy" alt="Tattoo 5">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item" data-img="https://images.unsplash.com/photo-1577655194893-575398a8d6d4?w=1200&h=1200&fit=crop">
-        <img src="https://images.unsplash.com/photo-1577655194893-575398a8d6d4?w=400&h=400&fit=crop" loading="lazy" alt="Tattoo 6">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item" data-img="https://images.unsplash.com/photo-1617922008530-7b4f637c7e15?w=1200&h=1200&fit=crop">
-        <img src="https://images.unsplash.com/photo-1617922008530-7b4f637c7e15?w=400&h=400&fit=crop" loading="lazy" alt="Tattoo 7">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item" data-img="https://images.unsplash.com/photo-1590086783191-a0694c7d1e6e?w=1200&h=1200&fit=crop">
-        <img src="https://images.unsplash.com/photo-1590086783191-a0694c7d1e6e?w=400&h=400&fit=crop" loading="lazy" alt="Tattoo 8">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
+      <div class="gallery-item" data-img="./img/tatoo1.png"><img src="./img/tatoo1.png" alt="Tattoo 1"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gallery-item" data-img="./img/tatoo2.png"><img src="./img/tatoo2.png" alt="Tattoo 2"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gallery-item" data-img="./img/tatoo3.png"><img src="./img/tatoo3.png" alt="Tattoo 3"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gallery-item" data-img="./img/tatoo4.png"><img src="./img/tatoo4.png" alt="Tattoo 4"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gallery-item" data-img="./img/tatoo5.png"><img src="./img/tatoo5.png" alt="Tattoo 5"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gallery-item" data-img="./img/tatoo6.png"><img src="./img/tatoo6.png" alt="Tattoo 6"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gallery-item" data-img="./img/tatoo7.png"><img src="./img/tatoo7.png" alt="Tattoo 7"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gallery-item" data-img="./img/tatoo8.png"><img src="./img/tatoo8.png" alt="Tattoo 8"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
     </div>
   </section>
 
@@ -180,9 +158,9 @@
               <div class="mb-4">
                 <label class="form-label">1. Duração da Sessão *</label>
                 <div class="row g-3">
-                  <div class="col-md-4"><button type="button" class="opcao-btn" data-duracao="2" data-valor="80"><i class="fas fa-clock me-2"></i><strong>2 horas</strong><br><span class="valor">R$ 80</span></button></div>
-                  <div class="col-md-4"><button type="button" class="opcao-btn" data-duracao="4" data-valor="150"><i class="fas fa-clock me-2"></i><strong>4 horas</strong><br><span class="valor">R$ 150</span></button></div>
-                  <div class="col-md-4"><button type="button" class="opcao-btn" data-duracao="8" data-valor="250"><i class="fas fa-clock me-2"></i><strong>8 horas</strong><br><span class="valor">R$ 250</span></button></div>
+                  <div class="col-md-4"><button type="button" class="opcao-btn" data-duracao="2" data-horas="2" data-valor="80"><i class="fas fa-clock me-2"></i><strong>2 horas</strong><br><span class="valor">R$ 80,00</span></button></div>
+                  <div class="col-md-4"><button type="button" class="opcao-btn" data-duracao="4" data-horas="4" data-valor="150"><i class="fas fa-clock me-2"></i><strong>4 horas</strong><br><span class="valor">R$ 150,00</span></button></div>
+                  <div class="col-md-4"><button type="button" class="opcao-btn" data-duracao="8" data-horas="8" data-valor="250"><i class="fas fa-clock me-2"></i><strong>8 horas</strong><br><span class="valor">R$ 250,00</span></button></div>
                 </div>
               </div>
               
@@ -218,15 +196,17 @@
             <div class="mb-3"><i class="fas fa-envelope me-2"></i> contato@casananquim.com</div>
             <div class="mb-3"><i class="fas fa-clock me-2"></i> Ter-Sáb: 10h-20h | Dom-Seg: fechado</div>
           </div>
-          <div class="mt-4 text-center">
-            <a href="https://www.instagram.com/casananquim/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+          <div class="mt-4">
+            <a href="https://www.instagram.com/casananquim/" target="_blank" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
         <div class="col-lg-7" data-aos="slide-left-ink" data-aos-delay="100">
           <div class="map-container">
-            <iframe src="https://www.google.com/maps?q=Casa+Nanquim+Tatuagem&output=embed" allowfullscreen loading="lazy"></iframe>
+            <iframe 
+              src="https://www.google.com/maps?q=Casa+Nanquim+Tatuagem&output=embed"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
           </div>
         </div>
       </div>
@@ -243,14 +223,14 @@
   </footer>
 </div>
 
-<!-- Botão flutuante do Instagram -->
-<a href="https://www.instagram.com/casananquim/" class="instagram-float" target="_blank" rel="noopener noreferrer">
+<!-- Instagram Float -->
+<a href="https://www.instagram.com/direct/t/17844168279024215/" class="instagram-float" target="_blank" rel="noopener noreferrer">
   <i class="fab fa-instagram"></i>
 </a>
 
 <!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-<script src="js/script.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
