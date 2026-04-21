@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Casa Nanquim - Estúdio de Tatuagem. Reserve seu espaço.">
+  <meta name="theme-color" content="#f5f3ef">
+  <!-- Hint ao browser para não tratar a página como complexa demais -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Casa Nanquim | Estúdio de Tatuagem</title>
+  
+  <!-- Fonts & Libraries -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Favicon inline -->
+  <link rel="icon" type="image/png" href="./img/faviconnanquim.png">
+</head>
+<body>
+
+<!-- Transição de entrada -->
+<div class="page-transition" id="pageTransition">
+  <div class="transition-content">
+    <div class="logo-icon">
+      <img src="img/logo.png" alt="Casa Nanquim" style="width: 80px; height: auto;">
+    </div>
+    <h3>CASA NANQUIM</h3>
+    <div class="ink-drop"></div>
+    <p style="color: #f5f3ef; letter-spacing: 2px; font-size: 0.8rem;">Onde a tinta encontra a pele</p>
+  </div>
+</div>
+
+<!-- Camada de efeitos de tinta -->
+<div class="ink-canvas">
+  <div class="ink-blob"></div><div class="ink-blob"></div><div class="ink-blob"></div><div class="ink-blob"></div>
+  <div class="ink-splash"></div><div class="ink-splash"></div><div class="ink-splash"></div><div class="ink-splash"></div><div class="ink-splash"></div>
+  <div class="ink-drip"></div><div class="ink-drip"></div><div class="ink-drip"></div><div class="ink-drip"></div><div class="ink-drip"></div>
+  <div class="ink-stroke"></div><div class="ink-stroke"></div>
+</div>
+<div class="paper-texture"></div>
+
+<div class="content">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">CASA NANQUIM</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reserva">Reservar</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-content" data-aos="fade-up-ink" data-aos-duration="1000">
+      <div class="hero-badge" data-aos="fade-up" data-aos-delay="200">✦ ESTÚDIO DE TATUAGEM ✦</div>
+      <h1 data-aos="zoom-ink" data-aos-delay="400">Casa Nanquim</h1>
+      <div class="subtitle" data-aos="fade-up" data-aos-delay="600">Onde a tinta encontra a pele</div>
+      <div class="d-flex gap-3 justify-content-center" data-aos="fade-up" data-aos-delay="800">
+        <a href="#reserva" class="btn-ink">Reservar espaço <i class="fas fa-arrow-right"></i></a>
+        <a href="#galeria" class="btn-ink btn-outline">Ver galeria</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">✦ O ESTÚDIO ✦</span>
+        <h2 class="section-title">Arte em movimento</h2>
+        <div class="ink-divider"></div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center" data-aos="fade-up-ink" data-aos-delay="100">
+          <p style="font-size: 1.1rem; line-height: 1.7;">A Casa Nanquim é um espaço criado para tatuadores que buscam excelência. Com estrutura completa, iluminação profissional e atmosfera inspiradora, oferecemos o ambiente perfeito para transformar ideias em arte eterna.</p>
+        </div>
+      </div>
+      <div class="row mt-5 g-4 row-cards">
+        <div class="col-md-4 d-flex" data-aos="slide-right-ink" data-aos-delay="100">
+          <div class="card-ink w-100">
+            <div class="brush-icon"><i class="fas fa-feather-alt"></i></div>
+            <h5>Precisão</h5>
+            <p class="small">Traços precisos como pinceladas de nanquim</p>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex" data-aos="zoom-ink" data-aos-delay="200">
+          <div class="card-ink w-100">
+            <div class="brush-icon"><i class="fas fa-droplet"></i></div>
+            <h5>Tinta Viva</h5>
+            <p class="small">Técnica tradicional e contemporânea</p>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex" data-aos="slide-left-ink" data-aos-delay="300">
+          <div class="card-ink w-100">
+            <div class="brush-icon"><i class="fas fa-palette"></i></div>
+            <h5>Expressão</h5>
+            <p class="small">Cada traço carrega sua identidade</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeria -->
+  <section id="galeria">
+    <div class="container-fluid px-0">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">✦ PORTFÓLIO ✦</span>
+        <h2 class="section-title">Inspirações</h2>
+        <div class="ink-divider"></div>
+      </div>
+    </div>
+    <div class="gallery-grid" data-aos="fade-up-ink" data-aos-delay="100">
+      <div class="gallery-item" data-img="./img/tatoo1.png"><img src="./img/tatoo1.png" alt="Tattoo 1" loading="eager"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gallery-item" data-img="./img/tatoo2.png"><img src="./img/tatoo2.png" alt="Tattoo 2" loading="lazy"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gallery-item" data-img="./img/tatoo3.png"><img src="./img/tatoo3.png" alt="Tattoo 3" loading="lazy"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gallery-item" data-img="./img/tatoo4.png"><img src="./img/tatoo4.png" alt="Tattoo 4" loading="lazy"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gallery-item" data-img="./img/tatoo5.png"><img src="./img/tatoo5.png" alt="Tattoo 5" loading="lazy"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gallery-item" data-img="./img/tatoo6.png"><img src="./img/tatoo6.png" alt="Tattoo 6" loading="lazy"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gallery-item" data-img="./img/tatoo7.png"><img src="./img/tatoo7.png" alt="Tattoo 7" loading="lazy"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gallery-item" data-img="./img/tatoo8.png"><img src="./img/tatoo8.png" alt="Tattoo 8" loading="lazy"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+    </div>
+  </section>
+
+  <!-- Modal Galeria -->
+  <div class="gallery-modal" id="galleryModal"><span class="close-modal">&times;</span><img id="modalImage" src="" alt=""></div>
+
+  <!-- Reserva -->
+  <section id="reserva" class="reserva-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">✦ RESERVE SEU ESPAÇO ✦</span>
+        <h2 class="section-title">Agende sua sessão</h2>
+        <div class="ink-divider"></div>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-8" data-aos="zoom-ink" data-aos-delay="100">
+          <div class="booking-card">
+            <form id="reservaForm">
+              <div class="row">
+                <div class="col-md-6 mb-3"><label class="form-label">Nome do Tatuador *</label><input type="text" class="form-control" id="nome" required></div>
+                <div class="col-md-6 mb-3"><label class="form-label">WhatsApp *</label><input type="tel" class="form-control" id="whatsapp" placeholder="(11) 99999-9999" required></div>
+              </div>
+              <div class="mb-3"><label class="form-label">Email (opcional)</label><input type="email" class="form-control" id="email"></div>
+              
+              <div class="mb-4">
+                <label class="form-label">1. Duração da Sessão *</label>
+                <div class="row g-3">
+                  <div class="col-md-4"><button type="button" class="opcao-btn" data-duracao="2" data-horas="2" data-valor="80"><i class="fas fa-clock me-2"></i><strong>2 horas</strong><br><span class="valor">R$ 80,00</span></button></div>
+                  <div class="col-md-4"><button type="button" class="opcao-btn" data-duracao="4" data-horas="4" data-valor="150"><i class="fas fa-clock me-2"></i><strong>4 horas</strong><br><span class="valor">R$ 150,00</span></button></div>
+                  <div class="col-md-4"><button type="button" class="opcao-btn" data-duracao="8" data-horas="8" data-valor="250"><i class="fas fa-clock me-2"></i><strong>8 horas</strong><br><span class="valor">R$ 250,00</span></button></div>
+                </div>
+              </div>
+              
+              <div class="mb-4"><label class="form-label">2. Selecione a Data *</label><input type="date" class="form-control" id="data" required></div>
+              
+              <div class="mb-4"><label class="form-label">3. Horários Disponíveis *</label><div id="horariosContainer" class="horarios-grid"><div class="texto-muted">Primeiro, selecione a duração e a data</div></div></div>
+              
+              <button type="submit" class="btn-ink w-100" id="submitBtn"><i class="fas fa-calendar-check me-2"></i> Solicitar Reserva</button>
+              <div id="mensagem" class="mt-3"></div>
+            </form>
+            <div class="status-card p-3 mt-4">
+              <div class="d-flex justify-content-between align-items-center">
+                <span><i class="fas fa-sync-alt me-2" id="statusIcon"></i><span id="statusText"></span></span>
+                <span class="badge bg-secondary" id="ultimaAtualizacao">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-5" data-aos="slide-right-ink" data-aos-delay="100">
+          <span class="section-tag">✦ CONTATO ✦</span>
+          <h2 class="section-title">Vamos conversar</h2>
+          <div class="ink-divider" style="margin-left: 0;"></div>
+          <div class="mt-4">
+            <div class="mb-3"><i class="fas fa-map-pin me-2"></i> R. José Mascarenhas, 1051 - Vila Matilde, SP</div>
+            <div class="mb-3"><i class="fas fa-envelope me-2"></i> contato@casananquim.com</div>
+            <div class="mb-3"><i class="fas fa-clock me-2"></i> Ter-Sáb: 10h-20h | Dom-Seg: fechado</div>
+          </div>
+          <div class="mt-4">
+            <a href="https://www.instagram.com/casananquim/" target="_blank" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-7" data-aos="slide-left-ink" data-aos-delay="100">
+          <div class="map-container">
+            <iframe 
+              src="https://www.google.com/maps?q=Casa+Nanquim+Tatuagem&output=embed"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="mb-3">CASA NANQUIM</div>
+      <div class="mb-3"><a href="#home">Início</a><a href="#sobre">Sobre</a><a href="#galeria">Galeria</a><a href="#reserva">Reservar</a><a href="#contato">Contato</a><a href="admin.html" style="opacity: 0.5;">Admin</a></div>
+      <div class="small">© <span id="currentYear"></span> CASA NANQUIM — Todos os direitos reservados</div>
+    </div>
+  </footer>
+</div>
+
+<!-- Instagram Float -->
+<a href="https://www.instagram.com/direct/t/17844168279024215/" class="instagram-float" target="_blank" rel="noopener noreferrer">
+  <i class="fab fa-instagram"></i>
+</a>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
