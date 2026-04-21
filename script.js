@@ -1,24 +1,23 @@
 // Inicialização do AOS
-AOS.init({
-  duration: 800,
-  once: false,
-  offset: 100,
-  easing: 'ease-out-cubic',
-  delay: 0
-});
+AOS.init({ duration: 800, once: false, offset: 100, easing: 'ease-out-cubic', delay: 0 });
 
-// Transição de entrada
-window.addEventListener('load', () => {
+// ========== TRANSIÇÃO DE ENTRADA (CORRIGIDA) ==========
+function hidePageTransition() {
   const transition = document.getElementById('pageTransition');
   if (transition) {
-    setTimeout(() => {
-      transition.classList.add('hide');
-      setTimeout(() => {
-        transition.style.display = 'none';
-      }, 800);
-    }, 1200);
+    transition.classList.add('hide');
+    setTimeout(() => { transition.style.display = 'none'; }, 800);
   }
-});
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => setTimeout(hidePageTransition, 1200));
+} else {
+  setTimeout(hidePageTransition, 1200);
+}
+setTimeout(() => {
+  const transition = document.getElementById('pageTransition');
+  if (transition && !transition.classList.contains('hide')) hidePageTransition();
+}, 3500);
 
 // Navbar scroll
 window.addEventListener('scroll', () => {
@@ -48,13 +47,9 @@ if (modal && modalImg && closeModal) {
 // ============================================
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRJplEccWvNLu9WVBeVygAylrdj6jHC9Pk5cbQKe3WORpaYooYb356c6PHRDikx8ph/exec';
 const TOKEN = 'casa_nanquim_2025_secret_token';
-const HORARIOS_BASE = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00'];
+const HORARIOS_BASE = ['10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'];
 
-let duracaoHoras = null;
-let duracaoSelecionada = null;
-let valorSelecionado = null;
-let dataSelecionada = null;
-let horarioSelecionado = null;
+let duracaoHoras = null, duracaoSelecionada = null, valorSelecionado = null, dataSelecionada = null, horarioSelecionado = null;
 
 const dataInput = document.getElementById('data');
 const horariosContainer = document.getElementById('horariosContainer');
@@ -69,8 +64,7 @@ function normalizarHorario(horario) {
   if (typeof horario === 'string' && /^\d{2}:\d{2}$/.test(horario)) return horario;
   const str = String(horario);
   const match = str.match(/(\d{1,2}):(\d{2})/);
-  if (match) return `${match[1].padStart(2, '0')}:${match[2]}`;
-  return str;
+  return match ? `${match[1].padStart(2,'0')}:${match[2]}` : str;
 }
 
 function atualizarStatus(status, texto) {
@@ -91,9 +85,7 @@ async function buscarReservas() {
   try {
     const response = await fetch(`${SCRIPT_URL}?action=getBookings&token=${TOKEN}`);
     const data = await response.json();
-    if (data.success) {
-      atualizarStatus('online', `Atualizado ${new Date().toLocaleTimeString()}`);
-    }
+    if (data.success) atualizarStatus('online', `Atualizado ${new Date().toLocaleTimeString()}`);
   } catch (error) {
     console.error('Erro:', error);
     atualizarStatus('offline', 'Erro de conexão');
@@ -101,9 +93,8 @@ async function buscarReservas() {
 }
 
 function calcularFim(inicio, horas) {
-  const [h, m] = inicio.split(':').map(Number);
-  let horaFim = h + horas;
-  return `${horaFim.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
+  const [h] = inicio.split(':').map(Number);
+  return `${(h + horas).toString().padStart(2,'0')}:00`;
 }
 
 function gerarHorariosDisponiveis() {
@@ -111,8 +102,7 @@ function gerarHorariosDisponiveis() {
   const horarios = [];
   for (const inicio of HORARIOS_BASE) {
     const inicioHora = parseInt(inicio.split(':')[0]);
-    const fimHora = inicioHora + duracaoHoras;
-    if (fimHora <= 20) {
+    if (inicioHora + duracaoHoras <= 20) {
       horarios.push({ inicio, fim: calcularFim(inicio, duracaoHoras), display: `${inicio} - ${calcularFim(inicio, duracaoHoras)}` });
     }
   }
@@ -128,36 +118,29 @@ function renderizarHorarios() {
     horariosContainer.innerHTML = '<div class="texto-muted">Selecione uma data</div>';
     return;
   }
-
   const [ano, mes, dia] = dataSelecionada.split('-').map(Number);
-  const dataObjUTC = new Date(Date.UTC(ano, mes - 1, dia));
-  const diaSemanaUTC = dataObjUTC.getUTCDay();
-  const hojeUTC = new Date();
-  hojeUTC.setUTCHours(0, 0, 0, 0);
-  const dataSelecionadaUTC = new Date(Date.UTC(ano, mes - 1, dia));
-
-  if (dataSelecionadaUTC < hojeUTC) {
+  const dataObjUTC = new Date(Date.UTC(ano, mes-1, dia));
+  const diaSemana = dataObjUTC.getUTCDay();
+  const hojeUTC = new Date(); hojeUTC.setUTCHours(0,0,0,0);
+  if (dataObjUTC < hojeUTC) {
     horariosContainer.innerHTML = '<div class="alert alert-danger">⚠️ Data passada</div>';
     return;
   }
-  if (diaSemanaUTC === 0 || diaSemanaUTC === 6) {
+  if (diaSemana === 0 || diaSemana === 6) {
     horariosContainer.innerHTML = '<div class="alert alert-danger">⚠️ Estúdio fechado aos fins de semana</div>';
     return;
   }
-
   const horarios = gerarHorariosDisponiveis();
   if (horarios.length === 0) {
     horariosContainer.innerHTML = '<div class="alert alert-danger">⚠️ Nenhum horário disponível para esta duração</div>';
     return;
   }
-
   let html = '';
   for (const h of horarios) {
     const selectedClass = (horarioSelecionado === h.inicio) ? 'selected' : '';
     html += `<button type="button" class="horario-btn ${selectedClass}" data-inicio="${h.inicio}" data-fim="${h.fim}">${h.display}</button>`;
   }
   horariosContainer.innerHTML = html;
-
   document.querySelectorAll('.horario-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.horario-btn').forEach(b => b.classList.remove('selected'));
@@ -204,11 +187,7 @@ async function enviarReserva(dados) {
     params.append('action', 'createBooking');
     params.append('token', TOKEN);
     params.append('data', JSON.stringify(dados));
-    const response = await fetch(SCRIPT_URL, {
-      method: 'POST',
-      body: params,
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-    });
+    const response = await fetch(SCRIPT_URL, { method: 'POST', body: params, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
     return await response.json();
   } catch (error) {
     return { success: false, error: error.message };
@@ -218,16 +197,12 @@ async function enviarReserva(dados) {
 function mostrarMensagem(texto, tipo) {
   const classe = tipo === 'sucesso' ? 'alert-success' : 'alert-danger';
   mensagemDiv.innerHTML = `<div class="alert ${classe}">${texto}</div>`;
-  setTimeout(() => {
-    if (mensagemDiv.innerHTML.includes(texto)) mensagemDiv.innerHTML = '';
-  }, 5000);
+  setTimeout(() => { if (mensagemDiv.innerHTML.includes(texto)) mensagemDiv.innerHTML = ''; }, 5000);
 }
 
 function setLoading(loading) {
   submitBtn.disabled = loading;
-  submitBtn.innerHTML = loading
-    ? '<span class="loading-spinner"></span> Enviando...'
-    : '<i class="fas fa-calendar-check me-2"></i> Solicitar Reserva';
+  submitBtn.innerHTML = loading ? '<span class="loading-spinner"></span> Enviando...' : '<i class="fas fa-calendar-check me-2"></i> Solicitar Reserva';
 }
 
 async function onSubmit(e) {
@@ -240,14 +215,12 @@ async function onSubmit(e) {
   if (!duracaoHoras) return mostrarMensagem('⚠️ Selecione a duração da sessão', 'erro');
   if (!dataSelecionada) return mostrarMensagem('⚠️ Selecione uma data', 'erro');
   if (!horarioSelecionado) return mostrarMensagem('⚠️ Selecione um horário', 'erro');
-
   setLoading(true);
   const fim = calcularFim(horarioSelecionado, duracaoHoras);
   const dados = {
     data: dataSelecionada, horario: horarioSelecionado, horarioFim: fim,
-    duracao: duracaoSelecionada, duracaoHoras: duracaoHoras, valor: valorSelecionado,
-    nome: nome, whatsapp: whatsapp, email: email,
-    timestamp: new Date().toISOString(), status: 'Pendente'
+    duracao: duracaoSelecionada, duracaoHoras, valor: valorSelecionado,
+    nome, whatsapp, email, timestamp: new Date().toISOString(), status: 'Pendente'
   };
   const result = await enviarReserva(dados);
   if (result.success) {
@@ -272,17 +245,11 @@ async function init() {
   const hoje = new Date().toISOString().split('T')[0];
   dataInput.min = hoje;
   await buscarReservas();
-  setInterval(async () => {
-    if (dataSelecionada && duracaoHoras) {
-      await buscarReservas();
-      renderizarHorarios();
-    }
-  }, 10000);
+  setInterval(async () => { if (dataSelecionada && duracaoHoras) { await buscarReservas(); renderizarHorarios(); } }, 10000);
 }
-
 init();
 
-// Scroll reveal adicional para elementos que não usam AOS
+// Scroll reveal adicional
 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -293,7 +260,6 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, observerOptions);
-
 document.querySelectorAll('.card-ink, .gallery-item, .opcao-btn').forEach(el => {
   if (!el.hasAttribute('data-aos')) {
     el.style.opacity = '0';
