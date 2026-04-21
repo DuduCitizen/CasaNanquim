@@ -26,35 +26,27 @@ body {
   transition: transform 0.8s cubic-bezier(0.77, 0, 0.18, 1);
   transform: translateY(0);
 }
-
-.page-transition.hide {
-  transform: translateY(-100%);
-}
-
+.page-transition.hide { transform: translateY(-100%); }
 .transition-content {
   text-align: center;
   animation: fadeInScale 0.6s ease-out;
 }
-
 .transition-content .logo-icon {
   font-size: 4rem;
   color: #f5f3ef;
   margin-bottom: 1rem;
   animation: pulse 1.2s ease-in-out infinite;
 }
-
 @keyframes pulse {
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.1); opacity: 0.8; }
 }
-
 .transition-content h3 {
   font-family: 'Playfair Display', serif;
   color: #f5f3ef;
   letter-spacing: 4px;
   font-size: 1.5rem;
 }
-
 .transition-content .ink-drop {
   width: 2px;
   height: 60px;
@@ -62,18 +54,16 @@ body {
   margin: 1.5rem auto;
   animation: dropLine 1.2s ease-in-out infinite;
 }
-
 @keyframes dropLine {
   0%, 100% { transform: scaleY(0.3); opacity: 0.3; }
   50% { transform: scaleY(1); opacity: 1; }
 }
-
 @keyframes fadeInScale {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
 }
 
-/* ===== EFEITOS DE TINTA CONTÍNUOS ===== */
+/* ===== EFEITOS DE TINTA (apenas desktop) ===== */
 .ink-canvas {
   position: fixed;
   top: 0;
@@ -84,7 +74,6 @@ body {
   z-index: 0;
   overflow: hidden;
 }
-
 .ink-blob {
   position: absolute;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0) 70%);
@@ -92,18 +81,15 @@ body {
   filter: blur(25px);
   animation: blobFloat 20s ease-in-out infinite;
 }
-
 .ink-blob:nth-child(1) { width: 500px; height: 500px; top: -150px; left: -150px; background: radial-gradient(ellipse, rgba(0,0,0,0.12), transparent); }
 .ink-blob:nth-child(2) { width: 600px; height: 600px; bottom: -200px; right: -200px; animation-duration: 25s; background: radial-gradient(ellipse, rgba(30,30,30,0.1), transparent); }
 .ink-blob:nth-child(3) { width: 350px; height: 350px; top: 40%; left: 70%; animation-duration: 18s; }
 .ink-blob:nth-child(4) { width: 280px; height: 280px; bottom: 30%; left: 10%; animation-duration: 22s; }
-
 @keyframes blobFloat {
   0%, 100% { border-radius: 60% 40% 50% 50% / 45% 50% 50% 55%; transform: translate(0,0) rotate(0deg); }
   33% { border-radius: 45% 55% 40% 60% / 50% 45% 55% 50%; transform: translate(40px,-30px) rotate(6deg); }
   66% { border-radius: 50% 45% 55% 40% / 40% 55% 45% 60%; transform: translate(-30px,25px) rotate(-5deg); }
 }
-
 .ink-splash {
   position: absolute;
   background: #1a1a1a;
@@ -121,7 +107,6 @@ body {
 .ink-splash:nth-child(7) { width: 80px; height: 80px; top: 60%; left: 85%; animation-delay: 0.7s; }
 .ink-splash:nth-child(8) { width: 30px; height: 30px; top: 75%; left: 30%; animation-delay: 2s; }
 .ink-splash:nth-child(9) { width: 50px; height: 50px; bottom: 10%; left: 60%; animation-delay: 1.5s; }
-
 .ink-drip {
   position: absolute;
   width: 3px;
@@ -141,7 +126,6 @@ body {
 .ink-drip:nth-child(12) { left: 65%; animation-delay: 0.5s; width: 2px; height: 18px; }
 .ink-drip:nth-child(13) { left: 85%; animation-delay: 1.8s; width: 4px; height: 22px; }
 .ink-drip:nth-child(14) { left: 15%; animation-delay: 2.2s; width: 2px; height: 16px; }
-
 .ink-stroke {
   position: absolute;
   background: rgba(0,0,0,0.05);
@@ -167,17 +151,13 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
-.content {
-  position: relative;
-  z-index: 10;
-  background: transparent;
-}
+.content { position: relative; z-index: 10; background: transparent; }
 
 /* === NAVEGAÇÃO === */
 .navbar {
   background: rgba(245, 243, 239, 0.92);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
   padding: 1rem 0;
   transition: all 0.3s ease;
   position: fixed;
@@ -185,10 +165,7 @@ body {
   width: 100%;
   z-index: 1000;
 }
-.navbar.scrolled {
-  padding: 0.6rem 0;
-  background: rgba(245, 243, 239, 0.98);
-}
+.navbar.scrolled { padding: 0.6rem 0; background: rgba(245,243,239,0.98); }
 .navbar-brand {
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
@@ -215,14 +192,9 @@ body {
   justify-content: center;
   text-align: center;
   position: relative;
-  margin-top: 0;
   padding-top: 80px;
 }
-.hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-}
+.hero-content { max-width: 800px; margin: 0 auto; padding: 2rem; }
 .hero-badge {
   display: inline-block;
   font-size: 0.7rem;
@@ -293,11 +265,8 @@ section { padding: 100px 0; position: relative; }
 .section-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 600; letter-spacing: -1px; margin-bottom: 1rem; color: #1a1a1a; }
 .ink-divider { width: 60px; height: 2px; background: #1a1a1a; margin: 1.5rem auto; opacity: 0.3; }
 
-/* === CARDS - Tamanhos uniformes === */
-.row-cards {
-  display: flex;
-  flex-wrap: wrap;
-}
+/* === CARDS === */
+.row-cards { display: flex; flex-wrap: wrap; }
 .card-ink {
   background: rgba(255,255,255,0.8);
   backdrop-filter: blur(4px);
@@ -311,7 +280,6 @@ section { padding: 100px 0; position: relative; }
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
 }
 .card-ink::before {
@@ -327,18 +295,13 @@ section { padding: 100px 0; position: relative; }
 }
 .card-ink:hover::before { opacity: 1; }
 .card-ink:hover { transform: translateY(-8px); box-shadow: 0 20px 30px -15px rgba(0,0,0,0.1); }
-.card-ink.selected {
-  background: #1a1a1a;
-  color: #fff;
-  border-color: #1a1a1a;
-}
+.card-ink.selected { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
 .card-ink.selected .price, .card-ink.selected .brush-icon { color: #fff; }
-.brush-icon { font-size: 2.2rem; color: #1a1a1a; margin-bottom: 1rem; display: inline-block; }
+.brush-icon { font-size: 2.2rem; color: #1a1a1a; margin-bottom: 1rem; }
 .card-ink h5 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.75rem; }
-.card-ink p { font-size: 0.85rem; line-height: 1.4; margin-bottom: 0; flex-grow: 0; }
-.card-ink .price { font-size: 1.8rem; font-weight: 700; margin: 0.5rem 0; }
+.card-ink p { font-size: 0.85rem; line-height: 1.4; }
 
-/* === FORMULÁRIO DE RESERVA === */
+/* === FORMULÁRIO === */
 .booking-card {
   background: rgba(255,255,255,0.85);
   backdrop-filter: blur(12px);
@@ -353,7 +316,6 @@ section { padding: 100px 0; position: relative; }
 }
 .form-control:focus { border-color: #1a1a1a; box-shadow: none; }
 .form-label { font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; color: #666; margin-bottom: 0.5rem; }
-
 .opcao-btn {
   background: rgba(255,255,255,0.8);
   border: 1px solid rgba(0,0,0,0.1);
@@ -363,13 +325,11 @@ section { padding: 100px 0; position: relative; }
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
-  font-size: 0.9rem;
 }
 .opcao-btn:hover { background: #f0f0f0; transform: translateY(-3px); }
 .opcao-btn.selected { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
 .opcao-btn strong { font-size: 1.3rem; display: block; margin: 10px 0; }
 .opcao-btn .valor { font-size: 1.1rem; font-weight: bold; }
-
 .horarios-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -388,7 +348,6 @@ section { padding: 100px 0; position: relative; }
 .horario-btn:hover { background: #f0f0f0; border-color: #1a1a1a; }
 .horario-btn.selected { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
 .horario-btn.disabled { background: #f5f5f5; color: #bbb; cursor: not-allowed; text-decoration: line-through; }
-
 .status-card {
   background: rgba(0,0,0,0.03);
   padding: 0.8rem 1rem;
@@ -462,7 +421,7 @@ section { padding: 100px 0; position: relative; }
 .footer a { color: #ccc; text-decoration: none; margin: 0 1rem; font-size: 0.8rem; }
 .footer a:hover { color: #fff; }
 
-/* REDES SOCIAIS - ESTILO NANQUIM */
+/* Redes sociais */
 .social-icon {
   display: inline-flex;
   align-items: center;
@@ -484,7 +443,7 @@ section { padding: 100px 0; position: relative; }
   transform: translateY(-3px);
 }
 
-/* MAPA ESTILO TINTA NANQUIM */
+/* Mapa */
 .map-container {
   width: 100%;
   height: 400px;
@@ -499,7 +458,7 @@ section { padding: 100px 0; position: relative; }
   filter: invert(90%) hue-rotate(180deg) contrast(90%);
 }
 
-/* Instagram Float - mesmo estilo do WhatsApp, mas com cores do Instagram */
+/* Botão flutuante Instagram */
 .instagram-float {
   position: fixed;
   bottom: 25px;
@@ -518,63 +477,59 @@ section { padding: 100px 0; position: relative; }
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
-
 .instagram-float:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 16px rgba(0,0,0,0.25);
   color: #fff;
 }
 
-/* Animações customizadas para AOS */
-[data-aos="fade-up-ink"] {
-  opacity: 0;
-  transform: translateY(40px);
-  transition-property: transform, opacity;
-}
-[data-aos="fade-up-ink"].aos-animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-[data-aos="zoom-ink"] {
-  opacity: 0;
-  transform: scale(0.95);
-  transition-property: transform, opacity;
-}
-[data-aos="zoom-ink"].aos-animate {
-  opacity: 1;
-  transform: scale(1);
-}
-[data-aos="slide-right-ink"] {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition-property: transform, opacity;
-}
-[data-aos="slide-right-ink"].aos-animate {
-  opacity: 1;
-  transform: translateX(0);
-}
-[data-aos="slide-left-ink"] {
-  opacity: 0;
-  transform: translateX(40px);
-  transition-property: transform, opacity;
-}
-[data-aos="slide-left-ink"].aos-animate {
-  opacity: 1;
-  transform: translateX(0);
-}
+/* Animações AOS customizadas */
+[data-aos="fade-up-ink"] { opacity: 0; transform: translateY(40px); transition-property: transform, opacity; }
+[data-aos="fade-up-ink"].aos-animate { opacity: 1; transform: translateY(0); }
+[data-aos="zoom-ink"] { opacity: 0; transform: scale(0.95); }
+[data-aos="zoom-ink"].aos-animate { opacity: 1; transform: scale(1); }
+[data-aos="slide-right-ink"] { opacity: 0; transform: translateX(-40px); }
+[data-aos="slide-right-ink"].aos-animate { opacity: 1; transform: translateX(0); }
+[data-aos="slide-left-ink"] { opacity: 0; transform: translateX(40px); }
+[data-aos="slide-left-ink"].aos-animate { opacity: 1; transform: translateX(0); }
 
+/* ===== OTIMIZAÇÕES PARA DISPOSITIVOS MÓVEIS ===== */
 @media (max-width: 768px) {
+  /* Remove efeitos de tinta pesados */
+  .ink-canvas, .ink-blob, .ink-splash, .ink-drip, .ink-stroke { display: none; }
+  /* Remove backdrop-filter (pesado) */
+  .navbar, .booking-card, .card-ink, .form-container, .contact-block {
+    backdrop-filter: none;
+    background: rgba(245, 243, 239, 0.98);
+  }
+  /* Remove transições e animações desnecessárias */
+  .card-ink, .gallery-item, .opcao-btn, .horario-btn, .social-icon { transition: none; }
+  .card-ink:hover, .gallery-item:hover { transform: none; }
+  /* Simplifica animação do loader */
+  .page-transition .ink-drop { animation: none; height: 30px; }
+  /* Reduz textura do papel */
+  .paper-texture { opacity: 0.02; }
+  /* Acelera GPU */
+  .navbar, .instagram-float { transform: translateZ(0); backface-visibility: hidden; }
+  /* Melhora resposta ao toque */
+  button, a, .btn-ink, .opcao-btn, .horario-btn { touch-action: manipulation; }
+  /* Ajustes de layout */
   .hero h1 { font-size: 2.8rem; }
   .section-title { font-size: 2rem; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .booking-card { padding: 1.5rem; }
   section { padding: 60px 0; }
-  .whatsapp-float {
-    bottom: 20px;
-    right: 20px;
-    width: 48px;
-    height: 48px;
-    font-size: 24px;
+  .instagram-float { bottom: 20px; right: 20px; width: 48px; height: 48px; font-size: 24px; }
+}
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+}
+/* Respeita configuração de redução de movimento do sistema */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
-@media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; } }
