@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Casa Nanquim</title>
+  <link rel="icon" type="image/png" href="img/faviconnanquim.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- Ink canvas background (espelha o site principal) -->
+<div class="ink-canvas-admin">
+  <div class="ink-blob-admin"></div>
+  <div class="ink-blob-admin"></div>
+  <div class="ink-blob-admin"></div>
+  <div class="ink-drip-admin"></div>
+  <div class="ink-drip-admin"></div>
+  <div class="ink-drip-admin"></div>
+  <div class="ink-stroke-admin"></div>
+  <div class="ink-stroke-admin"></div>
+</div>
+<div class="paper-texture-admin"></div>
+
+<!-- ==================== TELA DE LOGIN ==================== -->
+<div id="loginScreen" class="login-overlay">
+  <div class="login-card">
+    <div class="login-header">
+      <div class="ink-drop-login"></div>
+      <a href="index.html" class="login-logo-link">
+        <img src="img/logo.png" alt="Casa Nanquim" class="login-logo">
+      </a>
+      <div class="login-brand">CASA NANQUIM</div>
+      <div class="login-subtitle">Painel Administrativo</div>
+      <div class="login-divider"><span>✦</span></div>
+    </div>
+    <form id="loginForm" class="login-form">
+      <div class="form-group-ink">
+        <i class="fas fa-user form-icon"></i>
+        <input type="text" id="username" class="input-ink" placeholder="Usuário" required autocomplete="username">
+      </div>
+      <div class="form-group-ink">
+        <i class="fas fa-lock form-icon"></i>
+        <input type="password" id="password" class="input-ink" placeholder="Senha" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn-login">
+        <span class="btn-login-text">Entrar</span>
+        <i class="fas fa-arrow-right ms-2"></i>
+      </button>
+      <div id="loginError" class="login-error"></div>
+    </form>
+    <div class="login-back">
+      <a href="index.html"><i class="fas fa-arrow-left me-2"></i>Voltar ao site</a>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAINEL ADMIN ==================== -->
+<div id="adminPanel" class="admin-wrapper" style="display:none;">
+
+  <!-- Header -->
+  <header class="admin-header">
+    <div class="container-fluid px-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-3">
+          <a href="index.html" class="header-logo-link">
+            <img src="img/logo.png" alt="Casa Nanquim" class="header-logo">
+          </a>
+          <div class="header-info">
+            <div class="header-brand">CASA NANQUIM</div>
+            <div class="header-sub">Painel Administrativo</div>
+          </div>
+        </div>
+        <button class="btn-logout" id="logoutBtn">
+          <i class="fas fa-sign-out-alt me-2"></i>Sair
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <div class="container-fluid px-4">
+
+      <!-- Page title -->
+      <div class="page-title-row">
+        <div>
+          <h1 class="page-title">Reservas <span class="title-accent">✦</span></h1>
+          <p class="page-subtitle">Gestão de agendamentos do estúdio</p>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span class="live-text">Ao vivo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-md-3">
+          <div class="stats-card">
+            <div class="stats-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="stats-value" id="totalReservas">0</div>
+            <div class="stats-label">Total de Reservas</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stats-card">
+            <div class="stats-icon"><i class="fas fa-clock"></i></div>
+            <div class="stats-value" id="totalHoras">0</div>
+            <div class="stats-label">Horas Totais</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stats-card">
+            <div class="stats-icon"><i class="fas fa-money-bill-wave"></i></div>
+            <div class="stats-value" id="totalValor">R$ 0</div>
+            <div class="stats-label">Valor Total</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stats-card stats-card--highlight">
+            <div class="stats-icon"><i class="fas fa-check-circle"></i></div>
+            <div class="stats-value" id="totalConfirmados">0</div>
+            <div class="stats-label">Confirmados</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="toolbar-row">
+        <button class="btn-ink-admin" id="refreshBtn">
+          <i class="fas fa-sync-alt me-2"></i>Atualizar
+        </button>
+        <div class="search-wrap">
+          <i class="fas fa-search search-icon-admin"></i>
+          <input type="text" id="searchInput" class="search-input-admin" placeholder="Buscar por nome, data, WhatsApp...">
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-card">
+        <div id="tableLoading" class="loading-state" style="display:none;">
+          <div class="ink-spinner">
+            <div class="spinner-ring"></div>
+          </div>
+          <p class="loading-text">Carregando reservas...</p>
+        </div>
+        <div id="tableContent" class="table-responsive"></div>
+      </div>
+
+    </div>
+  </main>
+
+</div><!-- /adminPanel -->
+
+<!-- ==================== MODAL EDITAR ==================== -->
+<div id="editModal" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-card-header">
+      <div>
+        <div class="modal-tag">✦ EDIÇÃO ✦</div>
+        <h3 class="modal-title">Editar Reserva</h3>
+      </div>
+      <button id="closeModalBtn" class="modal-close-btn">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <form id="editForm" class="modal-form">
+      <input type="hidden" id="editRowId">
+
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="modal-label">Nome do Tatuador</label>
+          <input type="text" id="editNome" class="input-ink-modal" required>
+        </div>
+        <div class="col-md-6">
+          <label class="modal-label">WhatsApp</label>
+          <input type="text" id="editWhatsapp" class="input-ink-modal" required>
+        </div>
+        <div class="col-12">
+          <label class="modal-label">Email</label>
+          <input type="email" id="editEmail" class="input-ink-modal">
+        </div>
+        <div class="col-md-6">
+          <label class="modal-label">Data</label>
+          <input type="date" id="editData" class="input-ink-modal" required>
+        </div>
+        <div class="col-md-6">
+          <label class="modal-label">Horário Início</label>
+          <input type="text" id="editHorario" class="input-ink-modal" placeholder="10:00" required>
+        </div>
+        <div class="col-md-6">
+          <label class="modal-label">Duração</label>
+          <select id="editDuracao" class="input-ink-modal">
+            <option value="2h">2 horas — R$ 80,00</option>
+            <option value="4h">4 horas — R$ 150,00</option>
+            <option value="8h">8 horas — R$ 250,00</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="modal-label">Status</label>
+          <select id="editStatus" class="input-ink-modal">
+            <option value="Pendente">Pendente</option>
+            <option value="Confirmado">Confirmado</option>
+            <option value="Cancelado">Cancelado</option>
+            <option value="Concluído">Concluído</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-modal-cancel" id="closeModalBtnFooter">Cancelar</button>
+        <button type="submit" class="btn-modal-save">
+          <i class="fas fa-save me-2"></i>Salvar Alterações
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="admin.js"></script>
+<script>
+  // Fecha modal pelo botão do footer também
+  document.getElementById('closeModalBtnFooter').addEventListener('click', () => {
+    document.getElementById('editModal').classList.remove('active');
+  });
+</script>
+</body>
+</html>
